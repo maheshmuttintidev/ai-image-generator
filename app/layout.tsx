@@ -2,32 +2,29 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
-  title: "Friends Birthday Template",
-  description: "This Template is common template for all the birthday wishes",
+  title: "AI Image Generator | Mahesh Muttinti",
+  description: "Generate AI images with various prompts and sizes.",
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      // new URL("/favicon.ico", "https://maheshmuttintidev.in"),
-    ],
+    icon: [{ url: "/favicon.ico" }],
     apple: [{ url: "/apple-icon.png" }],
   },
-  // metadataBase: new URL("https://maheshmuttintidev.in"),
+  metadataBase: new URL("https://image-generator-unlimited.maheshmuttintidev.in"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Friends Birthday",
-    description: "This Template is common template for all the birthday wishes",
-    url: "https://maheshmuttintidev.in",
-    siteName: "Friends Birthday",
+    title: "AI Image Generator | Mahesh Muttinti",
+    description: "Generate AI images with various prompts and sizes.",
+    url: "https://image-generator-unlimited.maheshmuttintidev.in",
+    siteName: "AI Image Generator",
     locale: "en",
     type: "website",
     images: ["/brand_banner.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Friends Birthday",
-    description: "This Template is common template for all the birthday wishes",
+    title: "AI Image Generator | Mahesh Muttinti",
+    description: "Generate AI images with various prompts and sizes.",
     creator: "@MaheshMuttinti",
     images: ["/brand_banner.webp"],
   },
