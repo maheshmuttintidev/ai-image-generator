@@ -8,14 +8,16 @@ export const metadata = {
     icon: [{ url: "/favicon.ico" }],
     apple: [{ url: "/apple-icon.png" }],
   },
-  metadataBase: new URL("https://image-generator-unlimited.maheshmuttintidev.in"),
+  metadataBase: new URL(
+    "https://ai-image-generator-unlimited.maheshmuttintidev.in"
+  ),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "AI Image Generator | Mahesh Muttinti",
     description: "Generate AI images with various prompts and sizes.",
-    url: "https://image-generator-unlimited.maheshmuttintidev.in",
+    url: "https://ai-image-generator-unlimited.maheshmuttintidev.in",
     siteName: "AI Image Generator",
     locale: "en",
     type: "website",
