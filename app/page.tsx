@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState, FormEvent } from 'react';
-import Image from 'next/image';
+import { useState, FormEvent } from "react";
+import Image from "next/image";
 
 export default function AIImage() {
-  const [prompt, setPrompt] = useState<string>('');
+  const [prompt, setPrompt] = useState<string>("");
   const [width, setWidth] = useState<number>(1280);
   const [height, setHeight] = useState<number>(720);
   const [customSize, setCustomSize] = useState<boolean>(true); // Toggle between custom and predefined sizes
@@ -16,7 +16,9 @@ export default function AIImage() {
     setLoading(true);
     const seed = Math.floor(Math.random() * 100000000); // Generate a random seed
 
-    const endpoint = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?nologo=1&seed=${seed}&height=${height}&width=${width}`;
+    const endpoint = `https://image.pollinations.ai/prompt/${encodeURIComponent(
+      prompt
+    )}?nologo=1&seed=${seed}&height=${height}&width=${width}`;
 
     try {
       const response = await fetch(endpoint, {
@@ -26,10 +28,10 @@ export default function AIImage() {
       if (response.ok) {
         setImageUrl(response.url);
       } else {
-        console.error('Failed to fetch the image from the API');
+        console.error("Failed to fetch the image from the API");
       }
     } catch (error) {
-      console.error('Error fetching the AI image:', error);
+      console.error("Error fetching the AI image:", error);
     } finally {
       setLoading(false);
     }
@@ -37,39 +39,39 @@ export default function AIImage() {
 
   const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setCustomSize(value === 'custom');
+    setCustomSize(value === "custom");
 
     // Set predefined dimensions based on selection
     switch (value) {
-      case 'tiktok':
+      case "tiktok":
         setWidth(1080);
         setHeight(1920);
         break;
-      case 'instagram':
+      case "instagram":
         setWidth(1080);
         setHeight(1080);
         break;
-      case 'youtube':
+      case "youtube":
         setWidth(1280);
         setHeight(720);
         break;
-      case 'shorts':
+      case "shorts":
         setWidth(1080);
         setHeight(1920);
         break;
-      case 'reels':
+      case "reels":
         setWidth(1080);
         setHeight(1920);
         break;
-      case 'stories':
+      case "stories":
         setWidth(1080);
         setHeight(1920);
         break;
-      case 'portrait':
+      case "portrait":
         setWidth(720);
         setHeight(1280);
         break;
-      case 'landscape':
+      case "landscape":
         setWidth(1280);
         setHeight(720);
         break;
@@ -81,9 +83,14 @@ export default function AIImage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 p-4">
-      <h1 className="text-white text-4xl mb-8 text-center">✨ AI Image Generator ✨</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col items-center w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg">
+    <div className="flex flex-col items-center justify-center min-h-screen h-full overflow-y-scroll bg-gray-900 p-4">
+      <h1 className="text-white text-4xl mb-8 text-center">
+        ✨ AI Image Generator ✨
+      </h1>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg"
+      >
         <input
           type="text"
           value={prompt}
@@ -94,22 +101,35 @@ export default function AIImage() {
         />
         <div className="flex flex-col w-full mb-4 text-white">
           {[
-            { value: 'tiktok', label: 'TikTok (1080x1920)' },
-            { value: 'instagram', label: 'Instagram (1080x1080)' },
-            { value: 'youtube', label: 'YouTube (1280x720)' },
-            { value: 'shorts', label: 'Shorts (1080x1920)' },
-            { value: 'reels', label: 'Reels (1080x1920)' },
-            { value: 'stories', label: 'Stories (1080x1920)' },
-            { value: 'portrait', label: 'Portrait (720x1280)' },
-            { value: 'landscape', label: 'Landscape (1280x720)' },
-            { value: 'custom', label: 'Custom' }
+            { value: "tiktok", label: "TikTok (1080x1920)" },
+            { value: "instagram", label: "Instagram (1080x1080)" },
+            { value: "youtube", label: "YouTube (1280x720)" },
+            { value: "shorts", label: "Shorts (1080x1920)" },
+            { value: "reels", label: "Reels (1080x1920)" },
+            { value: "stories", label: "Stories (1080x1920)" },
+            { value: "portrait", label: "Portrait (720x1280)" },
+            { value: "landscape", label: "Landscape (1280x720)" },
+            { value: "custom", label: "Custom" },
           ].map(({ value, label }) => (
             <label key={value} className="flex items-center mb-2">
               <input
                 type="radio"
                 name="size"
                 value={value}
-                checked={!customSize && (width === 1080 && height === 1920 ? value === 'tiktok' : width === 1280 && height === 720 ? value === 'youtube' : width === 1080 && height === 1080 ? value === 'instagram' : width === 720 && height === 1280 ? value === 'portrait' : width === 1280 && height === 720 ? value === 'landscape' : false)}
+                checked={
+                  !customSize &&
+                  (width === 1080 && height === 1920
+                    ? value === "tiktok"
+                    : width === 1280 && height === 720
+                    ? value === "youtube"
+                    : width === 1080 && height === 1080
+                    ? value === "instagram"
+                    : width === 720 && height === 1280
+                    ? value === "portrait"
+                    : width === 1280 && height === 720
+                    ? value === "landscape"
+                    : false)
+                }
                 onChange={handleSizeChange}
                 className="mr-2"
               />
@@ -141,18 +161,28 @@ export default function AIImage() {
         )}
         <button
           type="submit"
-          className={`w-full p-3 text-xl rounded-lg ${loading ? 'bg-gray-500' : 'bg-green-500'} text-white transition-colors`}
+          className={`w-full p-3 text-xl rounded-lg ${
+            loading ? "bg-gray-500" : "bg-green-500"
+          } text-white transition-colors`}
           disabled={loading}
         >
-          {loading ? '⏳ Generating...' : '🎨 Generate Image'}
+          {loading ? "⏳ Generating..." : "🎨 Generate Image"}
         </button>
       </form>
       {imageUrl && (
         <div className="mt-8 flex flex-col items-center w-full max-w-lg">
           {/* @ts-ignore */}
-          <Image src={imageUrl} alt="AI Generated" width={width} height={height} className="rounded-lg shadow-lg" />
+          <Image
+            src={imageUrl}
+            alt="AI Generated"
+            width={width}
+            height={height}
+            className="rounded-lg shadow-lg"
+          />
           {/* eslint-disable-next-line react/no-unescaped-entities */}
-          <p className="text-white text-xl mt-4">🖼️ Here's your AI-generated image!</p>
+          <p className="text-white text-center text-xl mt-4">
+            🖼️ {`Here's your AI-generated image!`}
+          </p>
         </div>
       )}
     </div>
