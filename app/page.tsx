@@ -211,7 +211,7 @@ export default function AIImage(): React.ReactNode {
         {imageUrl ? (
           close ? (
             <p
-              className="text-white cursor-pointer p-3 bg-pink-900 rounded-md md:w-max w-full mt-3 text-center text-xl"
+              className="text-white cursor-pointer p-3 bg-pink-900 rounded-md md:w-max w-full my-3 text-center text-xl"
               onClick={() => setClose(false)}
             >
               Show Generated Image

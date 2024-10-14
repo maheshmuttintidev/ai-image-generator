@@ -44,10 +44,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head />
-      <body className="bg-slate-800 flex">
-        <article className="px-4">{children}</article>
+      <body className="bg-slate-800 md:flex">
+        {children}
+        <article className="px-4">
+          <nav className="w-full md:hidden">
+            {/* @ts-ignore */}
+            <AdBanner adSlot="4166061088" />
+            {/* @ts-ignore */}
+            <AdSense pId="3909331636598544" />
+          </nav>
+        </article>
 
-        <nav className="md:max-w-24 max-w-36">
+        <nav className="md:max-w-24 md:visible hidden max-w-36">
           {/* @ts-ignore */}
           <AdBanner adSlot="4166061088" />
           {/* @ts-ignore */}
