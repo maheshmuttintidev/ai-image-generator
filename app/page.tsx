@@ -58,7 +58,7 @@ export default function AIImage(): React.ReactNode {
 
   const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setCustomSize(value === "custom");
+    setCustomSize(value === "tiktok");
 
     switch (value) {
       case "tiktok":
@@ -220,7 +220,7 @@ export default function AIImage(): React.ReactNode {
             <div className="pt-4 px-3 flex flex-col items-center w-full container fixed top-[50%] translate-y-[-50%] z-10 backdrop-blur-md min-w-screen min-h-screen m-auto">
               <div className="relative">
                 <p
-                  className="absolute top-2 left-2 text-red-700 cursor-pointer p-2 rounded-md font-bold text-xl bg-white ml-auto"
+                  className="absolute top-14 right-2 text-red-700 cursor-pointer p-2 rounded-md text-base bg-white ml-auto"
                   onClick={() => setClose(true)}
                 >
                   Close

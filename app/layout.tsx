@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AdBanner } from "components/ad-banner";
+import { AdSense } from "components/ad-sense";
 
 export const metadata = {
   title: "AI Image Generator | Mahesh Muttinti",
@@ -42,7 +44,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head />
-      <body className="bg-slate-800">{children}</body>
+      <body className="bg-slate-800 flex">
+        <article className="px-4">{children}</article>
+
+        <nav className="md:max-w-24 max-w-36">
+          {/* @ts-ignore */}
+          <AdBanner adSlot="4166061088" />
+          {/* @ts-ignore */}
+          <AdSense pId="ca-pub-3909331636598544" />
+        </nav>
+      </body>
     </html>
   );
 }
