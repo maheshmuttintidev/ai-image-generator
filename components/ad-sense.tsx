@@ -5,7 +5,7 @@ type AdsenseTypes = {
   pId: string;
 };
 
-export const AdSense = ({ pId = "ca-pub-3909331636598544" }: AdsenseTypes) => {
+export const AdSense = ({ pId = "3909331636598544" }: AdsenseTypes) => {
   return (
     <Script
       async

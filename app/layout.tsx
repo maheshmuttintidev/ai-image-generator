@@ -51,7 +51,7 @@ export default function RootLayout({
           {/* @ts-ignore */}
           <AdBanner adSlot="4166061088" />
           {/* @ts-ignore */}
-          <AdSense pId="ca-pub-3909331636598544" />
+          <AdSense pId="3909331636598544" />
         </nav>
       </body>
     </html>
