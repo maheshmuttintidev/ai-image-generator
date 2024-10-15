@@ -1,7 +1,7 @@
+import { AdBanner } from "@/components/ad-banner";
+import { AdSense } from "@/components/ad-sense";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AdBanner } from "components/ad-banner";
-import { AdSense } from "components/ad-sense";
 
 export const metadata = {
   title: "AI Image Generator | Mahesh Muttinti",
